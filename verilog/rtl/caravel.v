@@ -62,7 +62,10 @@
 /*------------------------------*/
 /* Include user project here	*/
 /*------------------------------*/
-`include "user_proj_example.v"
+`include "ghazi/ghazi_top_dffram_csv.v"
+`include "ghazi/ghazi_top.v"
+`include "ghazi/iccm_controller.v"
+`include "ghazi/uart_rx_prog.v"
 
 // `ifdef USE_OPENRAM
 //     `include "sram_1rw1r_32_256_8_sky130.v"
