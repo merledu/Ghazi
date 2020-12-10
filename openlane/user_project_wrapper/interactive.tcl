@@ -36,7 +36,6 @@ foreach domain $power_domains {
 	set ::env(_VDD_NET_NAME) [lindex $domain 0]
 	set ::env(_GND_NET_NAME) [lindex $domain 1]
 	gen_pdn
-
 	set ::env(_V_OFFSET) \
 	[expr $::env(_V_OFFSET) + 2*($::env(_WIDTH)+$::env(_SPACING))]
 	set ::env(_H_OFFSET) \
@@ -44,10 +43,8 @@ foreach domain $power_domains {
 	set ::env(_V_PDN_OFFSET) [expr $::env(_V_PDN_OFFSET)+6*$::env(_WIDTH)]
 	set ::env(_H_PDN_OFFSET) [expr $::env(_H_PDN_OFFSET)+6*$::env(_WIDTH)]
 }
-
 global_routing_or
 detailed_routing
-
 run_magic
 run_magic_spice_export
 
