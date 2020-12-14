@@ -1,11 +1,11 @@
-# cannot commit files larger than 100 MB to GitHub 
+# cannot commit files larger than 100 MB to GitHub
 FILE_SIZE_LIMIT_MB = 100
 LARGE_FILES := $(shell find ./gds -type f -name "*.gds")
 LARGE_FILES += $(shell find . -type f -size +$(FILE_SIZE_LIMIT_MB)M -not -path "./.git/*" -not -path "./gds/*" -not -path "./openlane/*")
 
-LARGE_FILES_GZ := $(addsuffix .gz, $(LARGE_FILES))
+LARGE_FILES_XZ := $(addsuffix .xz, $(LARGE_FILES))
 
-ARCHIVES := $(shell find . -type f -name "*.gz")
+ARCHIVES := $(shell find . -type f -name "*.xz")
 ARCHIVE_SOURCES := $(basename $(ARCHIVES))
 
 
@@ -41,21 +41,21 @@ verify:
 
 
 
-$(LARGE_FILES_GZ): %.gz: %
-	@if ! [ $(suffix $<) == ".gz" ]; then\
-		gzip -n --best $< > /dev/null &&\
+$(LARGE_FILES_XZ): %.xz: %
+	@if ! [ $(suffix $<) == ".xz" ]; then\
+		xz -6 --threads=$(shell nproc) $< > /dev/null &&\
 		echo "$< -> $@";\
 	fi
 
 # This target compresses all files larger than $(FILE_SIZE_LIMIT_MB) MB
 .PHONY: compress
-compress: $(LARGE_FILES_GZ)
+compress: $(LARGE_FILES_XZ)
 	@echo "Files larger than $(FILE_SIZE_LIMIT_MB) MBytes are compressed!"
 
 
 
-$(ARCHIVE_SOURCES): %: %.gz
-	@gzip -d $< &&\
+$(ARCHIVE_SOURCES): %: %.xz
+	@xz --decompress $< &&\
 	echo "$< -> $@";\
 
 .PHONY: uncompress
@@ -84,13 +84,13 @@ $(LVS_BLOCKS): lvs-% : ./mag/%.mag ./verilog/gl/%.v
 	mkdir -p ./spi/lvs/tmp
 	sh ./spi/lvs/run_lvs.sh ./verilog/gl/$*.v ./spi/lvs/$*.spice $*
 	mv -f ./spi/lvs/*{.out,.json,.log} ./spi/lvs/tmp 2> /dev/null || true
-	
+
 
 .PHONY: help
 help:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
-		
+
 ###########################################################################
 .PHONY: pdk
 pdk: skywater-pdk skywater-library open_pdks build-pdk
