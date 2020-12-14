@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1607538158
+timestamp 1607663363
 << locali >>
 rect 8125 685899 8159 695453
 rect 72525 683247 72559 692733
@@ -33354,7 +33354,7 @@ rect 533604 -7366 534204 -7364
 rect 569604 -7366 570204 -7364
 rect 591760 -7366 592360 -7364
 use ghazi_top_dffram_csv  mprj
-timestamp 1607538158
+timestamp 1607663363
 transform 1 0 62000 0 1 52000
 box 0 0 460000 600000
 << labels >>
