@@ -18,10 +18,10 @@ add_macro_placement mprj 310 260 N
 
 manual_macro_placement f
 
-set ::env(_SPACING) 1.6
+set ::env(_SPACING) 1.8
 set ::env(_WIDTH) 3
 
-set power_domains [list {vccd1 vssd1} {vccd2 vssd2} {vdda1 vssa1} {vdda2 vssa2}]
+set power_domains [list {vccd1 vssd1} {vccd2 vssd2}]
 
 set ::env(_VDD_NET_NAME) vccd1
 set ::env(_GND_NET_NAME) vssd1
@@ -43,6 +43,7 @@ foreach domain $power_domains {
 	set ::env(_V_PDN_OFFSET) [expr $::env(_V_PDN_OFFSET)+6*$::env(_WIDTH)]
 	set ::env(_H_PDN_OFFSET) [expr $::env(_H_PDN_OFFSET)+6*$::env(_WIDTH)]
 }
+
 global_routing_or
 detailed_routing
 run_magic
