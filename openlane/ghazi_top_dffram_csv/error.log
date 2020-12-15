@@ -1,0 +1,8 @@
+during executing: "netgen -batch lvs {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/magic/ghazi_top_dffram_csv.spice ghazi_top_dffram_csv} {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/synthesis/ghazi_top_dffram_csv.synthesis_preroute.v ghazi_top_dffram_csv} /home/caravelNov30TO/apr//sky130A/libs.tech/netgen/sky130A_setup.tcl /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/lvs/ghazi_top_dffram_csv.lvs.log -json |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/lvs/lvs.log"
+Last 10 lines:
+child killed: kill signal
+
+during executing: "netgen -batch lvs {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/magic/ghazi_top_dffram_csv.spice ghazi_top_dffram_csv} {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/synthesis/ghazi_top_dffram_csv.synthesis_preroute.v ghazi_top_dffram_csv} /home/caravelNov30TO/apr//sky130A/libs.tech/netgen/sky130A_setup.tcl /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/lvs/ghazi_top_dffram_csv.lvs.log -json |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/lvs/lvs.log"
+Last 10 lines:
+child killed: kill signal
+

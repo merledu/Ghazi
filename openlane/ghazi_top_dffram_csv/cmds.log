@@ -1,0 +1,88 @@
+Wed Dec 09 07:49:09 UTC 2020 - Executing "/openLANE_flow/scripts/mergeLef.py -i /home/caravelNov30TO/apr//sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd.tlef {/home/caravelNov30TO/apr/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/caravelNov30TO/apr/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd__fakediode_2.lef} -o /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/merged_unpadded.lef |& tee >&@stdout"
+
+Wed Dec 09 07:49:09 UTC 2020 - Executing "/openLANE_flow/scripts/libtrim.pl /home/caravelNov30TO/apr//sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib /home/caravelNov30TO/apr//sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells > /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/trimmed.lib"
+
+Wed Dec 09 07:49:09 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/synth.tcl -l /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/synthesis/yosys.log |& tee >&@stdout"
+
+Wed Dec 09 07:57:04 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/ghazi_top_dffram_csv\/runs\/rtl_updated\/results\/synthesis\/ghazi_top_dffram_csv.synthesis.v/} /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/config.tcl"
+
+Wed Dec 09 07:57:04 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 0/} /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/config.tcl"
+
+Wed Dec 09 07:57:04 UTC 2020 - Executing "sed -ie /defparam/d /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/synthesis/ghazi_top_dffram_csv.synthesis.v"
+
+Wed Dec 09 07:57:06 UTC 2020 - Executing "sta /openLANE_flow/scripts/sta.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/synthesis/opensta.log"
+
+Wed Dec 09 07:57:14 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_floorplan.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/floorplan/verilog2def.openroad.log"
+
+Wed Dec 09 07:57:18 UTC 2020 - Executing "python3 /openLANE_flow/scripts/io_place.py --input-lef /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/merged.lef --input-def /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/floorplan/verilog2def_openroad.def --config //project/openlane/ghazi_top_dffram_csv/pin_order.cfg --hor-layer 4 --ver-layer 3 --ver-width-mult 2 --hor-width-mult 2 --hor-extension -1 --ver-extension -1 --length 4 -o /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/floorplan/ioPlacer.def |& tee /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/floorplan/place_io_ol.log >&@stdout"
+
+Wed Dec 09 07:57:23 UTC 2020 - Executing "sta /openLANE_flow/scripts/sta.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/synthesis/opensta.log"
+
+Wed Dec 09 07:57:31 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_replace.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/placement/replace.log"
+
+Wed Dec 09 07:59:12 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_tapcell.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/floorplan/tapcell.log"
+
+Wed Dec 09 07:59:29 UTC 2020 - Executing "opendp -lef /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/merged.lef -def /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/floorplan/ghazi_top_dffram_csv.floorplan.def -output_def /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/placement/ghazi_top_dffram_csv.placement.def |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/placement/opendp.log"
+
+Wed Dec 09 07:59:40 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_cts.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/cts/cts.log"
+
+Wed Dec 09 08:01:41 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/write_verilog.log"
+
+Wed Dec 09 08:01:44 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/ghazi_top_dffram_csv\/runs\/rtl_updated\/results\/synthesis\/ghazi_top_dffram_csv.synthesis_cts.v/} /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/config.tcl"
+
+Wed Dec 09 08:01:44 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/ghazi_top_dffram_csv\/runs\/rtl_updated\/results\/synthesis\/ghazi_top_dffram_csv.synthesis.v/} /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/config.tcl"
+
+Wed Dec 09 08:01:44 UTC 2020 - Executing "sta /openLANE_flow/scripts/sta.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/synthesis/opensta.log"
+
+Wed Dec 09 08:02:52 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/new_pdn.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/floorplan/pdn.log"
+
+Wed Dec 09 08:03:16 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_route.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/routing/fastroute.log"
+
+Wed Dec 09 08:04:04 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_route.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/routing/fastroute_post_antenna.log"
+
+Wed Dec 09 08:06:32 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_fill.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/routing/addspacers.log"
+
+Wed Dec 09 08:06:37 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/write_verilog.log"
+
+Wed Dec 09 08:06:43 UTC 2020 - Executing "sed -i -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/project\/openlane\/ghazi_top_dffram_csv\/runs\/rtl_updated\/results\/synthesis\/ghazi_top_dffram_csv.synthesis_preroute.v/} /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/config.tcl"
+
+Wed Dec 09 08:06:43 UTC 2020 - Executing "sed -i -e {s/\(set ::env(PREV_NETLIST)\).*/\1 \/project\/openlane\/ghazi_top_dffram_csv\/runs\/rtl_updated\/results\/synthesis\/ghazi_top_dffram_csv.synthesis_cts.v/} /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/config.tcl"
+
+Wed Dec 09 08:06:43 UTC 2020 - Executing "envsubst < /openLANE_flow/scripts/tritonRoute.param > /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/routing/tritonRoute.param"
+
+Wed Dec 09 08:06:43 UTC 2020 - Executing "TritonRoute /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/routing/tritonRoute.param |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/routing/tritonRoute.log"
+
+Wed Dec 09 10:24:28 UTC 2020 - Executing "python3 /openLANE_flow/scripts/tr2klayout.py -i /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/reports/routing/tritonRoute.drc -o /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/reports/routing/tritonRoute.klayout.xml --design-name ghazi_top_dffram_csv"
+
+Wed Dec 09 10:24:28 UTC 2020 - Executing "python3 /openLANE_flow/scripts/spef_extractor/main.py -l /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/merged_unpadded.lef -d /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/routing/ghazi_top_dffram_csv.def -mw L -ec 1 |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/routing/spef_extraction.log"
+
+Wed Dec 09 10:39:56 UTC 2020 - Executing "sta /openLANE_flow/scripts/sta.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/synthesis/opensta_spef.log"
+
+Wed Dec 09 10:41:43 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic/mag_lef_gds.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic.log"
+
+Wed Dec 09 11:00:54 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic/maglef.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic.maglef.log"
+
+Wed Dec 09 11:00:56 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic/drc.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic.drc.log"
+
+Wed Dec 09 12:20:15 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/magic_spice.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic_spice.log"
+
+Wed Dec 09 13:34:42 UTC 2020 - Executing "netgen -batch lvs {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/magic/ghazi_top_dffram_csv.spice ghazi_top_dffram_csv} {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/synthesis/ghazi_top_dffram_csv.synthesis_preroute.v ghazi_top_dffram_csv} /home/caravelNov30TO/apr//sky130A/libs.tech/netgen/sky130A_setup.tcl /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/lvs/ghazi_top_dffram_csv.lvs.log -json |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/lvs/lvs.log"
+
+Wed Dec 09 16:32:43 UTC 2020 - Executing "python3 /openLANE_flow/scripts/write_powered_def.py -d /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/routing/ghazi_top_dffram_csv.def -l /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/merged.lef -v VPWR -g VGND -o /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/routing/ghazi_top_dffram_csv.powered.def |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/lvs/write_powered_verilog.log"
+
+Wed Dec 09 16:33:45 UTC 2020 - Executing "openroad -exit /openLANE_flow/scripts/openroad/or_write_verilog.tcl |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/write_verilog.log"
+
+Wed Dec 09 16:34:02 UTC 2020 - Executing "yosys -c /openLANE_flow/scripts/yosys_rewrite_verilog.tcl -l /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/synthesis/yosys_rewrite_verilog.log"
+
+Wed Dec 09 17:14:01 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic/mag_lef_gds.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic.log"
+
+Wed Dec 09 17:32:03 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic/maglef.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic.maglef.log"
+
+Wed Dec 09 17:32:05 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /openLANE_flow/scripts/magic/drc.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic.drc.log"
+
+Wed Dec 09 18:38:03 UTC 2020 - Executing "magic -noconsole -dnull -rcfile /home/caravelNov30TO/apr//sky130A/libs.tech/magic/sky130A.magicrc /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/tmp/magic_spice.tcl </dev/null |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/magic/magic_spice.log"
+
+Wed Dec 09 19:53:13 UTC 2020 - Executing "netgen -batch lvs {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/magic/ghazi_top_dffram_csv.spice ghazi_top_dffram_csv} {/project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/synthesis/ghazi_top_dffram_csv.synthesis_preroute.v ghazi_top_dffram_csv} /home/caravelNov30TO/apr//sky130A/libs.tech/netgen/sky130A_setup.tcl /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/results/lvs/ghazi_top_dffram_csv.lvs.log -json |& tee >&@stdout /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/logs/lvs/lvs.log"
+
+Thu Dec 10 06:25:01 UTC 2020 - Executing "python3 /openLANE_flow/report_generation_wrapper.py -d /project/openlane/ghazi_top_dffram_csv -dn ghazi_top_dffram_csv -t rtl_updated -o /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated/reports/final_summary_report.csv -r /project/openlane/ghazi_top_dffram_csv/runs/rtl_updated"
+
