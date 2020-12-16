@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# Ghazi
-
-An SoC (System on a Chip) design for Google sponsored Open MPW shuttles for SKY130.
-
-<p align=”center”>
-<img src="/doc/Ghazi-SoC.png" > 
-</p>
-
-=======
 <!---
 # SPDX-FileCopyrightText: 2020 Efabless Corporation
 #
@@ -24,8 +14,16 @@ An SoC (System on a Chip) design for Google sponsored Open MPW shuttles for SKY1
 # limitations under the License.
 #
 # SPDX-License-Identifier: Apache-2.0
--->
->>>>>>> f48448d4736bd6d56fed4dbf7f9cc50552d8745d
+-->s
+# Ghazi
+
+An SoC (System on a Chip) design for Google sponsored Open MPW shuttles for SKY130.
+
+<p align=”center”>
+<img src="/doc/Ghazi-SoC.png" > 
+</p>
+
+
 # CIIC Harness  
 
 A template SoC for Google SKY130 free shuttles. It is still WIP. The current SoC architecture is given below.
