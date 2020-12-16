@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # SPDX-FileCopyrightText: 2020 Efabless Corporation
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +14,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
->>>>>>> f48448d4736bd6d56fed4dbf7f9cc50552d8745d
 # cannot commit files larger than 100 MB to GitHub
 FILE_SIZE_LIMIT_MB = 100
 LARGE_FILES := $(shell find ./gds -type f -name "*.gds")
