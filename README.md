@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 # SPDX-License-Identifier: Apache-2.0
--->s
-# Ghazi
+-->
+# Ghazi SoC
 
 An SoC (System on a Chip) design for Google sponsored Open MPW shuttles for SKY130.
 

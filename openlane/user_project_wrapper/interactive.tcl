@@ -1,7 +1,7 @@
 package require openlane
 set script_dir [file dirname [file normalize [info script]]]
 
-prep -design $script_dir -tag user_project_wrapper -overwrite
+prep -design $script_dir -tag user_project_wrapper_18_Dec_3_pm_powered_netlist -overwrite
 set save_path $script_dir/../..
 
 verilog_elaborate
@@ -21,7 +21,7 @@ manual_macro_placement f
 set ::env(_SPACING) 1.8
 set ::env(_WIDTH) 3
 
-set power_domains [list {vccd1 vssd1} {vccd2 vssd2}]
+set power_domains [list {vccd1 vssd1}]
 
 set ::env(_VDD_NET_NAME) vccd1
 set ::env(_GND_NET_NAME) vssd1
@@ -46,6 +46,8 @@ foreach domain $power_domains {
 
 global_routing_or
 detailed_routing
+write_powered_verilog -power vccd1 -ground vssd1
+set_netlist $::env(lvs_result_file_tag).powered.v
 run_magic
 run_magic_spice_export
 
@@ -53,6 +55,7 @@ save_views       -lef_path $::env(magic_result_file_tag).lef \
                  -def_path $::env(tritonRoute_result_file_tag).def \
                  -gds_path $::env(magic_result_file_tag).gds \
                  -mag_path $::env(magic_result_file_tag).mag \
+		 -verilog_path $::env(CURRENT_NETLIST) \
                  -save_path $save_path \
                  -tag $::env(RUN_TAG)
 
