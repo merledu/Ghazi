@@ -4,7 +4,7 @@ read_def $::env(CURRENT_DEF)
 set ::env(_SPACING) 1.7
 set ::env(_WIDTH) 3
 
-set power_domains [list {vccd1 vssd1 1} {vccd2 vssd2 1} {vdda1 vssa1 0} {vdda2 vssa2 0}]
+set power_domains [list {vccd1 vssd1 1} {vccd2 vssd2 0} {vdda1 vssa1 0} {vdda2 vssa2 0}]
 
 set ::env(_VDD_NET_NAME) vccd1
 set ::env(_GND_NET_NAME) vssd1
