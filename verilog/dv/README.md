@@ -18,13 +18,14 @@
 # DV Tests
 
 Organized into two subdirectories:
-  * caravel: contains tests for both the mangement SoC and an example user project.
+  * caravel: contains tests for the mangement SoC, an example user project and Ghazi SoC, keeping in mind, the tests for example user project won't work anymore
   * wb_utests: contains unit tests for the wishbone components residing at the management SoC private bus
 
 <pre>
 ├── caravel
 │   ├── mgmt_soc
-│   ├── user_proj_example
+│   ├── ~~user_proj_example~~
+│   ├── ghazi_top_dffram_csv
 └── wb_utests
 </pre>
 

@@ -36,7 +36,7 @@ module uart_rx_prog (
    
    
   // Purpose: Control RX state machine
-  always @(posedge i_Clock negedge rst_ni )
+  always @(posedge i_Clock or negedge rst_ni)
     begin
       if (!rst_ni) begin
         r_SM_Main <= s_IDLE;

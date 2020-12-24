@@ -37,14 +37,14 @@ module test_1_tb;
 		$dumpvars(0, test_1_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (300) begin
-			repeat (1000) @(posedge clock);
-			// $display("+1000 cycles");
-		end
-		$display("%c[1;31m",27);
-		$display ("Monitor: Timeout, Test Mega-Project IO Ports (RTL) Failed");
-		$display("%c[0m",27);
-		$finish;
+		// repeat (300) begin
+		// 	repeat (1000) @(posedge clock);
+		// 	// $display("+1000 cycles");
+		// end
+		// $display("%c[1;31m",27);
+		// $display ("Monitor: Timeout, Test Mega-Project IO Ports (RTL) Failed");
+		// $display("%c[0m",27);
+		// $finish;
 	end
 
 	initial begin
