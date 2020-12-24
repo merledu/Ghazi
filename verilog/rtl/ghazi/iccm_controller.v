@@ -43,11 +43,14 @@ module iccm_controller (
 		reset_d = reset_q;
 		ctrl_fsm_ns = ctrl_fsm_cs;
 		case (ctrl_fsm_cs)
-			RESET:
+			RESET: begin
+				we_d = 1'b0;
+				reset_d = 1'b0;
 				if (rx_dv_i)
 					ctrl_fsm_ns = LOAD;
 				else
 					ctrl_fsm_ns = RESET;
+			end
 			LOAD:
 				if (((byte_count == 2'b11) && (rx_byte_q2 != 8'h0f)) && (rx_byte_d != 8'hff)) begin
 					we_d = 1'b1;
